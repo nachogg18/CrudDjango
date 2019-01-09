@@ -1,0 +1,28 @@
+<h1>Tareas</h1>
+
+<table border="1">
+<thead>
+    <tr>
+    <th>Fecha</th>
+    <th>Descripcion</th>
+    <th>Asignado a</th>
+    <th>View</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    {% for tarea in object_list %}
+    <tr>
+    <td>{{ tarea.fecha}}</td>
+    <td>{{ tarea.descripcion }}</td>
+    <td>{{ tarea.asignado_a }}</td>
+    <td><a href="{% url "tarea_view" tarea.id %}">view</a></td>
+    <td><a href="{% url "tarea_edit" tarea.id %}">edit</a></td>
+    <td><a href="{% url "tarea_delete" tarea.id %}">delete</a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+
+<a href="{% url "tarea_new" %}">New</a>
